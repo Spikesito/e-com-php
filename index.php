@@ -1,4 +1,5 @@
 <?php
-echo 'bite';
-include './fiona.php';
+include './View/header.php';
+include './View/body.php';
+include './View/footer.php';
 ?>
