@@ -1,79 +1,91 @@
-<?php
+<?php 
+    namespace Core;
 
-<<<<<<< HEAD
-use Twig\Profiler\Dumper\HtmlDumper;
+    class Router {
 
-include './View/header.php';
-include './View/body.php';
-include './View/footer.php';
+        protected $routes = [];
+        protected $params = [];
+
+        public function add($route, $params = []) {
+            $route = preg_replace('/\//', '\\/', $route);
+            $route = preg_replace('/\{([a-z]+)\}', '(?P<\1>[a-z-]+)', $route);
+            $route = preg_replace('/\{([a-z]+):([^\}]+)}/', '(?P<\1>\2)', $route);
+            $route = '/^' . $route . '$/i';
+            $this -> routes[$route]=$params;
+        }
+
+        public function getRoutes() {
+            return $this->routes;
+        }
+
+        public function match($url) {
+            foreach ($this->routes as $route => $params) {
+                if (preg_match($route, $url, $matches)) {
+                    foreach ($matches as $key => $match) {
+                        if (is_string($key)) {
+                            $params[$key]=$match;
+                        }
+                    }
+                    $this->params = $params;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public function getParams() {
+            return $this->params;
+        }
+
+        public function dispatch($url) {
+            $url = $this->removeQueryStringVariables($url);
+            if ($this->match($url)) {
+                $controller = $this->params['controller'];
+                $controller = $this->convertToStudlyCaps($controller);
+                $controller = $this->getNamespace() . $controller;
+                
+                if (class_exists($controller)) {
+                    $controller_object = new $controller($this->params);
+
+                    $action = $this->params['action'];
+                    $action = $this->convertToCamelCase($action);
+                    
+                    if (preg_match('/action$/i', $action)==0) {
+                        $controller_object->$action();
+                    }
+                }
+            }   
+        }
+
+        protected function convertToCamelCase($string) {
+            return lcfirst($this->convertToStudlyCaps($string));
+        }
+        
+        protected function convertToStudlyCaps($string) {
+            return str_replace(' ', '', ucwords(str_replace('-',' ',$string)));
+        }
+
+        protected function removeQueryStringVariables($url) {
+            if ($url != '') {
+                $parts=explode('&',$url,2);
+                if (strpos($parts[0],'=')===false) {
+                    $url = $parts[0];
+                } else {
+                    $url = '';
+                }
+            }
+            return $url;
+        }
+
+        protected function getNamespace() {
+            $namespace = 'App\Controllers\\';
+
+            if (array_key_exists('namespace', $this->params)) {
+                $namespace.=$this->params['namespace'].'\\';
+            }
+            return $namespace;
+        }
+
+    }
+
 ?>
-
-
- <!-- Routing  -->
-<!-- <html>
-    <form action="post_form.php" method="POST">
-        <input type="text" name="firstname"></input>
-        <input type="submit" value="Envoyer"></input>
-    </form>
-</html> -->
-
-<html>
-    <form action="post_form.php" method="GET">
-        <input type="text" name="firstname"></input>
-        <input type="submit" value="Envoyer"></input>
-    </form>
-</html>
-
-=======
-require 'vendor/autoload.php';
-
-$page = 'home';
-if (isset($_GET['p'])) {
-    $page = $_GET['p'];
-}
-
-$loader = new \Twig\Loader\FilesystemLoader('./View/templates');
-$twig = new \Twig\Environment($loader, [
-    'cache' => false // __DIR__ . '/tmp'
-]);
-
-
-switch ($page) {
-    case 'home';
-        echo $twig->render('home.twig');
-        break;
-    case 'product';
-        echo $twig->render('product.twig');
-        break;
-    default;
-        header('HTTP/1.0 404 Not Found');
-        echo $twig->render('404.twig');
-        break;
-}
-
-?>
-<!-- 
-?php
-include './View/header.php';
-include './View/body.php';
-include './View/footer.php';
-?> -->
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    ?php if (1 == 1)
-    echo 'bite';
-    ?>
-</body>
-
-</html> -->
->>>>>>> origin/wass
