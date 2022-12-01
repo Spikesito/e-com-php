@@ -4,8 +4,16 @@
     use PDO;
     use App\Config;
 
-    abstract class Core {
-        protected static function getDB() {
+
+    class Core {
+        public static $instance;
+
+        public function __construct() {
+            $this->instance = $this;
+        }
+
+        function getDB() {
+            echo "getDB";
             static $db=null;
 
             if ($db ===null) {
@@ -17,3 +25,5 @@
             return $db;
         }
     }
+
+    ?>

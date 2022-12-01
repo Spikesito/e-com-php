@@ -1,8 +1,10 @@
 <?php 
-    namespace Core;
+    //namespace Core;
 
-use App\Models\User;
-use Core\Core\Core;
+    require_once __DIR__ . '/vendor/autoload.php';
+
+    use App\Model\User;
+    use Core\Core\Core;
 
     
 
@@ -93,7 +95,9 @@ use Core\Core\Core;
 
     }
 
-    $User = new User;
+    $User = new User();
     $User::getAll();
+
+    $core = new Core();
 
 ?>
