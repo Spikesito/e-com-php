@@ -1,6 +1,11 @@
 <?php 
     namespace Core;
 
+use App\Models\User;
+use Core\Core\Core;
+
+    
+
     class Router {
 
         protected $routes = [];
@@ -87,5 +92,8 @@
         }
 
     }
+
+    $User = new User;
+    $User::getAll();
 
 ?>

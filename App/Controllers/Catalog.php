@@ -7,7 +7,7 @@ use App\Models\User;
 class Catalog {
     
     public function productsAction() {
-        View::renderTemplate('Catalog/index.html', [
+        View::renderTemplate('Catalog/index.twig', [
             'products' => User::getAll(),
         ]);
     }
