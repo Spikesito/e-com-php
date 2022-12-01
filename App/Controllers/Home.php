@@ -1,9 +1,9 @@
 <?php 
 namespace App\Controllers;
 
-use \Core\View;
+use \Core\Core\View;
 
-class Home extends Core\Core\Controller {
+class Home {
     
     public function indexAction() {
         View::renderTemplate('Home/index.html');
@@ -11,3 +11,4 @@ class Home extends Core\Core\Controller {
 }
 
 ?>
+ <!-- extends Core\Core\Controller -->
