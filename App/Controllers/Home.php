@@ -9,5 +9,3 @@ class Home extends Core\Core\Controller {
         View::renderTemplate('Home/index.html');
     }
 }
-
-?>
