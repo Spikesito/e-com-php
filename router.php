@@ -82,7 +82,11 @@ function route($route, $path_to_include)
     call_user_func_array($callback, $parameters);
     exit();
   }
-  echo $twig->render("/$path_to_include");
+  $mabite = array("a" => $parameters[0]);
+  $template = $twig->load("/$path_to_include");
+  // $ffile = fopen("testfile.txt", "w");
+  // fwrite($ffile, $parameters[0]);
+  echo $template->render($mabite);
   exit();
 }
 function out($text)
