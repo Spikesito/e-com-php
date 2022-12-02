@@ -38,7 +38,7 @@ function any($route, $path_to_include)
 }
 function route($route, $path_to_include)
 {
-  $loader = new \Twig\Loader\FilesystemLoader('./View/templates');
+  $loader = new \Twig\Loader\FilesystemLoader('App/View/templates');
   $twig = new \Twig\Environment($loader, [
     'cache' => false // __DIR__ . '/tmp'
   ]);
@@ -60,7 +60,9 @@ function route($route, $path_to_include)
   array_shift($route_parts);
   array_shift($request_url_parts);
   if ($route_parts[0] == '' && count($request_url_parts) == 0) {
-    echo $twig->render("/$path_to_include");
+    // echo $twig->render("/$path_to_include");
+    include_once './App/Controller/Catalog.php';
+
     exit();
   }
   if (count($route_parts) != count($request_url_parts)) {
@@ -82,11 +84,12 @@ function route($route, $path_to_include)
     call_user_func_array($callback, $parameters);
     exit();
   }
-  $mabite = array("a" => $parameters[0]);
-  $template = $twig->load("/$path_to_include");
+  // $mabite = array("a" => $parameters[0]);
+  // $template = $twig->load("/$path_to_include");
   // $ffile = fopen("testfile.txt", "w");
   // fwrite($ffile, $parameters[0]);
-  echo $template->render($mabite);
+  // echo $template->render($mabite);
+  include_once 'App/Controller/Catalog.php';
   exit();
 }
 function out($text)

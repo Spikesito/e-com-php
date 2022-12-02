@@ -12,6 +12,7 @@ require_once __DIR__ . '/router.php';
 get('/', 'home.twig');
 get('/products', 'product.twig');
 get('/detail/$productId', 'detail.twig');
+get('/catalog', 'Catalog.php');
 
 // Dynamic GET. Example with 1 variable
 // The $id will be available in user.php
