@@ -39,7 +39,7 @@ function any($route, $path_to_include)
 }
 function route($route, $path_to_include)
 {
-  $loader = new \Twig\Loader\FilesystemLoader('./App/Views/');
+  $loader = new \Twig\Loader\FilesystemLoader('./App/Views');
   $twig = new \Twig\Environment($loader, [
     'cache' => false // __DIR__ . '/tmp'
   ]);
@@ -83,7 +83,8 @@ function route($route, $path_to_include)
     call_user_func_array($callback, $parameters);
     exit();
   }
-  echo $twig->render("/$path_to_include");
+  // echo $twig->render("/$path_to_include");
+  echo include_once __DIR__ . "/$path_to_include";
   exit();
 }
 function out($text)

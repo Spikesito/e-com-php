@@ -1,14 +1,24 @@
-<?php 
+<?php
+
 namespace App\Controllers;
 
-use \Core\Core\View;
-use App\Models\User;
 
-class Catalog {
-    
-    public function productsAction() {
-        View::renderTemplate('Catalog/index.twig', [
-            'products' => User::getAll(),
+use App\Model\Product\Product;
+
+class Catalog
+{
+
+    public function productsAction()
+    {
+        
+        $loader = new \Twig\Loader\FilesystemLoader('./App/Views');
+        $twig = new \Twig\Environment($loader, [
+            'cache' => false // __DIR__ . '/tmp'
+        ]);
+        $template = $twig->load("catalog.twig");
+
+        echo $twig->render('catalog.twig', [
+            'products' => Product::getAll(),
         ]);
     }
 
@@ -22,4 +32,4 @@ class Catalog {
 }
 
 ?>
- <!-- extends Core\Core\Controller -->
+<!-- extends Core\Core\Controller -->

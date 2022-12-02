@@ -1,13 +1,19 @@
 <?php 
 namespace App\Controllers;
 
-use \Core\Core\View;
-use \Core\Core\Controller;
+use App\Model\Product\Product;
 
 class Home {
+    public function homeAction() {
+        $loader = new \Twig\Loader\FilesystemLoader('./App/Views');
+            $twig = new \Twig\Environment($loader, [
+                'cache' => false // __DIR__ . '/tmp'
+            ]);
+            $template = $twig->load("home.twig");
     
-    public function indexAction() {
-        View::renderTemplate('Home/index.twig');
+            echo $twig->render('catalog.twig', [
+                'products' => Product::getAll(),
+            ]);
     }
 }
 
