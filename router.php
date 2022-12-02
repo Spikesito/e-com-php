@@ -39,7 +39,7 @@ function any($route, $path_to_include)
 }
 function route($route, $path_to_include)
 {
-  $loader = new \Twig\Loader\FilesystemLoader('./View/templates');
+  $loader = new \Twig\Loader\FilesystemLoader('./App/Views/');
   $twig = new \Twig\Environment($loader, [
     'cache' => false // __DIR__ . '/tmp'
   ]);

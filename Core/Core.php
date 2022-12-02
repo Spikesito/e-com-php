@@ -1,29 +1,24 @@
-<?php 
-    namespace Core\Core;
+<?php
 
-    use PDO;
-    use App\Config;
+namespace Core\Core;
+
+use PDO;
+use App\Config;
 
 
-    class Core {
-        public static $instance;
+class Core
+{
+    function getDB()
+    {
+        static $dbh = null;
 
-        public function __construct() {
-            $this->instance = $this;
+        if ($dbh === null) {
+            $dsn = "mysql:host=" . Config::DB_HOST . ";dbname=" . Config::DB_NAME; // contient le nom du serveur et de la base
+            $user = 'root';
+            $password = '';
+            $dbh = new PDO($dsn, $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+            $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
-
-        function getDB() {
-            echo "getDB";
-            static $db=null;
-
-            if ($db ===null) {
-                $dsn = "mysql:host=" . Config::DB_HOST . ";dbname=" . Config::DB_NAME. ";charset=utf8";
-                $db=new PDO($dsn, Config::DB_USER, Config::DB_PASSWORD);
-                
-                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            }
-            return $db;
-        }
+        return $dbh;
     }
-
-    ?>
+}

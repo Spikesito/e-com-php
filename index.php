@@ -95,9 +95,4 @@
 
     }
 
-    $User = new User();
-    $User::getAll();
-
-    $core = new Core();
-
 ?>

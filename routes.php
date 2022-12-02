@@ -9,9 +9,8 @@ require_once __DIR__ . '/router.php';
 // Static GET
 // In the URL -> http://localhost
 // The output -> Index
-get('/', 'home.twig');
-get('/products', 'product.twig');
-get('/detail/$productId','detail.twig');
+get('/', '/Home/index.twig');
+get('/products', '/Catalog/index.twig');
 
 // Dynamic GET. Example with 1 variable
 // The $id will be available in user.php
@@ -56,4 +55,4 @@ get('/detail/$productId','detail.twig');
 // For GET or POST
 // The 404.php which is inside the views folder will be called
 // The 404.php has access to $_GET and $_POST
-any('/404', '404.twig');
+any('/404', '/404/404.twig');
