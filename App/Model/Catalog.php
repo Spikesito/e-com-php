@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Model\Product;
+namespace App\Model;
 
-//require_once __DIR__ . '/../../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 use PDO;
 
-class Product extends \App\Model\Core\Core
+class Catalog extends \App\Model\Core\Core
 {
     public static function getAll()
     {

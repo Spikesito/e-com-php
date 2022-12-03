@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controller;
 
 
-use App\Model\Product\Product;
+use App\Model\Catalog;
 
-class Catalog
+class Cat
 {
 
     public function productsAction()
@@ -17,8 +17,10 @@ class Catalog
         ]);
         $template = $twig->load("catalog.twig");
         // echo 1;
+        $a = Catalog::getAll();
         echo $twig->render($template, [
-            'products' => Product::getAll(),
+            // 'products' => Product::getAll(),
+            'test' => "bite"
         ]);
 
         // ----
@@ -44,5 +46,5 @@ class Catalog
     // }
 }
 
-$a = new Catalog();
+$a = new Cat();
 $a->productsAction();
