@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Model\Product\Product;
+use App\Model\Catalog;
 
 class Home 
 {
@@ -15,7 +15,7 @@ class Home
         $template = $twig->load("home.twig");
 
         echo $twig->render('catalog.twig', [
-            'products' => Product::getAll(),
+            'products' => Catalog::getAll(),
         ]);
     }
 }
