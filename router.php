@@ -36,22 +36,36 @@ function delete($route, $path_to_include) {
 function any($route, $path_to_include) {
   route($route, $path_to_include);
 }
+<<<<<<< HEAD
 
 
 
 function route($route, $path_to_include) {
   $loader = new \Twig\Loader\FilesystemLoader('./App/Views');
+=======
+function route($route, $path_to_include)
+{
+  $loader = new \Twig\Loader\FilesystemLoader('App/View/templates');
+>>>>>>> origin/wass
   $twig = new \Twig\Environment($loader, [
     'cache' => false // __DIR__ . '/tmp'
   ]);
 
   $callback = $path_to_include;
+<<<<<<< HEAD
   if (!is_callable($callback)) {
     // if (!strpos($path_to_include, '.php')) {
     //   $path_to_include .= '.php';
     // }
   }
 
+=======
+  // if (!is_callable($callback)) {
+  // if (!strpos($path_to_include, '.php')) {
+  //   $path_to_include .= '.php';
+  // }
+  // }
+>>>>>>> origin/wass
   if ($route == "/404") {
     echo $twig->render("/$path_to_include");
     exit();
@@ -67,7 +81,9 @@ function route($route, $path_to_include) {
   array_shift($request_url_parts);
 
   if ($route_parts[0] == '' && count($request_url_parts) == 0) {
-    echo $twig->render("/$path_to_include");
+    // echo $twig->render("/$path_to_include");
+    include_once './App/Controller/' . $path_to_include;
+
     exit();
   }
   if (count($route_parts) != count($request_url_parts)) {
@@ -92,11 +108,12 @@ function route($route, $path_to_include) {
     call_user_func_array($callback, $parameters);
     exit();
   }
-  $mabite = array("a" => $parameters[0]);
-  $template = $twig->load("/$path_to_include");
+  // $mabite = array("a" => $parameters[0]);
+  // $template = $twig->load("/$path_to_include");
   // $ffile = fopen("testfile.txt", "w");
   // fwrite($ffile, $parameters[0]);
-  echo $template->render($mabite);
+  // echo $template->render($mabite);
+  include_once 'App/Controller/' . $path_to_include;
   exit();
 }
 function out($text)

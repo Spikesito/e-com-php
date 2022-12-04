@@ -6,11 +6,23 @@ require_once __DIR__ . '/router.php';
 // ##################################################
 // ##################################################
 
+$loader = new \Twig\Loader\FilesystemLoader('App/View/templates');
+$twig = new \Twig\Environment($loader, [
+    'cache' => false // __DIR__ . '/tmp'
+]);
+
 // Static GET
 // In the URL -> http://localhost
 // The output -> Index
+<<<<<<< HEAD
 get('/', '/home.twig');
 get('/products', 'App/Controllers/Catalog.php');
+=======
+get('/', 'Home.php');
+get('/products', 'product.twig');
+get('/detail/$productId', 'Detail.php');
+get('/catalog', 'Catalog.php');
+>>>>>>> origin/wass
 
 // Dynamic GET. Example with 1 variable
 // The $id will be available in user.php
