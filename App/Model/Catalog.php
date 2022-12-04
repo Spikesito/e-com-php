@@ -24,7 +24,11 @@ class Catalog extends \App\Model\Core\Core
     {
         $db = static::getDB();
         $stmt = $db->query("SELECT * FROM products WHERE ProductId = $id");
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $final = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
+        $categ = $db->query("SELECT Name FROM category INNER JOIN products ON category.CategoryId = products.CategoryId WHERE ProductId = $id");
+        // echo $categ->fetchAll(PDO::FETCH_ASSOC)[0]['Name'];
+        $final['Category'] = $categ->fetchAll(PDO::FETCH_ASSOC)[0]['Name'];
+        return $final;
     }
 
     // public static function getId()
