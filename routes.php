@@ -14,15 +14,10 @@ $twig = new \Twig\Environment($loader, [
 // Static GET
 // In the URL -> http://localhost
 // The output -> Index
-<<<<<<< HEAD
-get('/', '/home.twig');
-get('/products', 'App/Controllers/Catalog.php');
-=======
 get('/', 'Home.php');
 get('/products', 'product.twig');
 get('/detail/$productId', 'Detail.php');
 get('/catalog', 'Catalog.php');
->>>>>>> origin/wass
 
 // Dynamic GET. Example with 1 variable
 // The $id will be available in user.php
