@@ -12,17 +12,17 @@
 {% block content %}
 	<h1>
 		Catalog section !
-		<br>{{test}}
-		<br>
-		<div id="product-container">
-			{% for p in products %}
-				<div class="product-card" onclick="document.location.href='/detail/{{p.ProductId}}'">
-					<img src="https://picsum.photos/200/200"></img>
-				<p>{{ p.ProductName }}</p>
-			</div>
-		{% endfor %}
-	</div>
-</h1>
+	</h1>
+	<br>{{test}}
+	<br>
+	<div id="product-container">
+		{% for p in products %}
+			<div class="product-card" onclick="document.location.href='/detail/{{p.ProductId}}'">
+				<img src="https://picsum.photos/200/200"></img>
+			<p>{{ p.ProductName }}</p>
+		</div>
+	{% endfor %}
+</div>
 <style>
 	#product-container {
 		display: grid;

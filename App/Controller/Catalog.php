@@ -10,7 +10,7 @@ use App\Model\Catalog;
 class Cat extends Catalog
 {
 
-    public function productsAction()
+    public function productAction()
     {
 
         $loader = new \Twig\Loader\FilesystemLoader('App/View/templates');
@@ -23,29 +23,8 @@ class Cat extends Catalog
             'products' => $this::getAll(),
             'test' => "bite"
         ]);
-
-        // ----
-        // $template = $twig->load("catalog.twig");
-        // // echo 1;
-        // $b = new Product();
-        // $arr = $b->getAll();
-
-        // echo $twig->render($template, [
-        //     'products' => $arr[0],
-        // ]);
-        // ----
-
-        // echo $twig->render('catalog.twig');
     }
-
-    // public function carsAction() {
-    //     View::renderTemplate('Home/index.html');
-    // }
-
-    // public function bagsAction() {
-    //     View::renderTemplate('Home/index.html');
-    // }
 }
 
 $a = new Cat();
-$a->productsAction();
+$a->productAction();

@@ -6,6 +6,11 @@ require_once __DIR__ . '/router.php';
 // ##################################################
 // ##################################################
 
+$loader = new \Twig\Loader\FilesystemLoader('App/View/templates');
+$twig = new \Twig\Environment($loader, [
+    'cache' => false // __DIR__ . '/tmp'
+]);
+
 // Static GET
 // In the URL -> http://localhost
 // The output -> Index

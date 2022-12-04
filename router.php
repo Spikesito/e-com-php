@@ -43,11 +43,11 @@ function route($route, $path_to_include)
     'cache' => false // __DIR__ . '/tmp'
   ]);
   $callback = $path_to_include;
-  if (!is_callable($callback)) {
-    // if (!strpos($path_to_include, '.php')) {
-    //   $path_to_include .= '.php';
-    // }
-  }
+  // if (!is_callable($callback)) {
+  // if (!strpos($path_to_include, '.php')) {
+  //   $path_to_include .= '.php';
+  // }
+  // }
   if ($route == "/404") {
     echo $twig->render("/$path_to_include");
     exit();
@@ -84,7 +84,7 @@ function route($route, $path_to_include)
     call_user_func_array($callback, $parameters);
     exit();
   }
-  $mabite = array("a" => $parameters[0]);
+  // $mabite = array("a" => $parameters[0]);
   // $template = $twig->load("/$path_to_include");
   // $ffile = fopen("testfile.txt", "w");
   // fwrite($ffile, $parameters[0]);
