@@ -16,7 +16,7 @@ class Detail extends Catalog
         ]);
         $template = $twig->load("detail.twig");
         // echo 1;
-        echo var_dump($this::getDetailById($id));
+        // echo var_dump($this::getDetailById($id));
         echo $twig->render($template, [
             'p' => $this::getDetailById($id),
             'test' => "bite"
