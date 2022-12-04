@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Model\Product\Product;
 
-class Home
+class Home 
 {
     public function homeAction()
     {

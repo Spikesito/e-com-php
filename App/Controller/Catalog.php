@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Controller;
+// namespace App\Controller;
 
+
+require 'App/Model/Catalog.php';
 
 use App\Model\Catalog;
 
-class Cat
+class Cat extends Catalog
 {
 
     public function productsAction()
@@ -17,9 +19,8 @@ class Cat
         ]);
         $template = $twig->load("catalog.twig");
         // echo 1;
-        $a = Catalog::getAll();
         echo $twig->render($template, [
-            // 'products' => Product::getAll(),
+            'products' => $this::getAll(),
             'test' => "bite"
         ]);
 

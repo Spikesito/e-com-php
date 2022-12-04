@@ -61,7 +61,7 @@ function route($route, $path_to_include)
   array_shift($request_url_parts);
   if ($route_parts[0] == '' && count($request_url_parts) == 0) {
     // echo $twig->render("/$path_to_include");
-    include_once './App/Controller/Catalog.php';
+    include_once './App/Controller/' . $path_to_include;
 
     exit();
   }
@@ -84,12 +84,12 @@ function route($route, $path_to_include)
     call_user_func_array($callback, $parameters);
     exit();
   }
-  // $mabite = array("a" => $parameters[0]);
+  $mabite = array("a" => $parameters[0]);
   // $template = $twig->load("/$path_to_include");
   // $ffile = fopen("testfile.txt", "w");
   // fwrite($ffile, $parameters[0]);
   // echo $template->render($mabite);
-  include_once 'App/Controller/Catalog.php';
+  include_once 'App/Controller/' . $path_to_include;
   exit();
 }
 function out($text)

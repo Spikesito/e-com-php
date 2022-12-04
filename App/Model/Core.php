@@ -3,12 +3,14 @@
 namespace App\Model\Core;
 
 use PDO;
+
+require 'App/Model/Config.php';
 use App\Model\Config\Config;
 
 
 class Core
 {
-    function getDB()
+    static function getDB()
     {
         static $dbh = null;
 

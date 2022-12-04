@@ -9,9 +9,9 @@ require_once __DIR__ . '/router.php';
 // Static GET
 // In the URL -> http://localhost
 // The output -> Index
-get('/', 'home.twig');
+get('/', 'Home.php');
 get('/products', 'product.twig');
-get('/detail/$productId', 'detail.twig');
+get('/detail/$productId', 'Detail.php');
 get('/catalog', 'Catalog.php');
 
 // Dynamic GET. Example with 1 variable
