@@ -14,10 +14,12 @@ $twig = new \Twig\Environment($loader, [
 // Static GET
 // In the URL -> http://localhost
 // The output -> Index
-get('/', 'Home.php');
-get('/products', 'product.twig');
-get('/detail/$productId', 'Detail.php');
-get('/catalog', 'Catalog.php');
+get('/', 'Home_Controller.php');
+// get('/products', 'product.twig');
+get('/detail/$productId', 'Detail_Controller.php');
+get('/catalog', 'Catalog_Controller.php');
+get('/login', 'Login_Controller.php');
+get('/register', 'Register_Controller.php');
 
 // Dynamic GET. Example with 1 variable
 // The $id will be available in user.php
@@ -62,4 +64,4 @@ get('/catalog', 'Catalog.php');
 // For GET or POST
 // The 404.php which is inside the views folder will be called
 // The 404.php has access to $_GET and $_POST
-any('/404', '/404.twig');
+// any('/404', '/404.twig');

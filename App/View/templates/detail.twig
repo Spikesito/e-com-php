@@ -2,32 +2,31 @@
 
 {% block head %}
 	<title>
-		Detail
+		Detail Snokers
 	</title>
+	<link rel="stylesheet" href="../static/detail.css"> 
 {% endblock %}
-
 
 {# {% block connected %}
 <p>Ici ya du contenu qui peut bouger</p>
-{% endblock %} #}	
+{% endblock %} #}
+
 {% block content %}
 	<h1>
-		Welcome to the product page of the {{p.ProductId}} product
-</h1>
-		<h2> {{p.ProductName}} </h2>
-		<h2> Price : {{p.Price}} $ <br><br> Description:</h2> <p>{{p.Description}}</p>
-<div id="product-container"></div>{% endblock %}{# <!DOCTYPE html>
-	<html lang="en">
-		<head>
-			<meta charset="UTF-8">
-			<meta http-equiv="X-UA-Compatible" content="IE=edge">
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<title>Document</title>
-		</head>
-		<body>
-			<div>
-				{{data.title}}
-				<p>Juibo ?{{data.juibo}}</p>
-			</div>
-		</body>
-	</html> #}
+		Welcome to the product page of the
+		{{p.ProductId}}
+		product
+	</h1>
+	<img src="https://picsum.photos/200/200"></img>
+<h2>
+	{{p.ProductName}}
+</h2>
+<h2>
+	Price :
+	{{p.Price}}
+	$
+	<br><br>
+	Description:
+</h2>
+<p>{{p.Description}}</p>
+<div id="product-container"></div>{% endblock %}

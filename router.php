@@ -36,36 +36,19 @@ function delete($route, $path_to_include) {
 function any($route, $path_to_include) {
   route($route, $path_to_include);
 }
-<<<<<<< HEAD
-
-
-
-function route($route, $path_to_include) {
-  $loader = new \Twig\Loader\FilesystemLoader('./App/Views');
-=======
 function route($route, $path_to_include)
 {
   $loader = new \Twig\Loader\FilesystemLoader('App/View/templates');
->>>>>>> origin/wass
   $twig = new \Twig\Environment($loader, [
     'cache' => false // __DIR__ . '/tmp'
   ]);
 
   $callback = $path_to_include;
-<<<<<<< HEAD
-  if (!is_callable($callback)) {
-    // if (!strpos($path_to_include, '.php')) {
-    //   $path_to_include .= '.php';
-    // }
-  }
-
-=======
   // if (!is_callable($callback)) {
   // if (!strpos($path_to_include, '.php')) {
   //   $path_to_include .= '.php';
   // }
   // }
->>>>>>> origin/wass
   if ($route == "/404") {
     echo $twig->render("/$path_to_include");
     exit();

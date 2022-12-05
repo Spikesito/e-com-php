@@ -20,11 +20,13 @@ class Cat extends Catalog
         $template = $twig->load("catalog.twig");
         // echo 1;
         echo $twig->render($template, [
-            'products' => $this::getAll(),
-            'test' => "bite"
+            'products' => $this::getAll()
         ]);
     }
 }
 
 $a = new Cat();
+if (ISSET($_SESSION['Name'])){
+
+}
 $a->productAction();

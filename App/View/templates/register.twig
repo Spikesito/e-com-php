@@ -1,0 +1,29 @@
+{% extends "layout.twig" %}
+
+{% block head %}
+	<title>
+		Register Snokers
+	</title>
+{% endblock %}
+
+{% block content %}
+	<h1>
+		Create an account
+	</h1>
+	<form method="POST" action="/register">
+        <div class="names-input">
+            <div class="one-input">
+                <label for="firstname">firstname</label>
+                <input class="short-input" name="Name"></input>
+            </div>
+            <div class="one-input">
+                <label for="lastname">lastname</label>
+                <input class="short-input" name="Name"></input>
+            </div>
+        </div>
+		<div class="biggerSec-input">
+            <label for="lastname">lastname</label>
+            <input class="short-input" name="Name"></input>
+        </div>
+	    <button>Register</button>
+    </form>{% endblock %}
