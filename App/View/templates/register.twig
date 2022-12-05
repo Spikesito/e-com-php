@@ -1,0 +1,35 @@
+{% extends "layout.twig" %}
+
+{% block head %}
+	<title>
+		Register
+	</title>
+{% endblock %}
+
+
+{# {% block connected %}
+<p>Ici ya du contenu qui peut bouger</p>
+{% endblock %} #}
+{% block content %}
+	<h1>{{status}}</h1>
+	<h1>
+		Welcome Home
+	</h1>
+	<form method="POST" action="/register">
+		<input placeholder="FirstName" name="FirstName" value=""></input>
+	<input placeholder="LastName" name="LastName" value=""></input>
+<input type="email" placeholder="Email" name="Email" value=""></input><input placeholder="Password" name="Password" value=""></input><input placeholder="DD-MM-YYYY" name="BirthDate" value=""></input><button>Register</button></form>{% endblock %}{# <!DOCTYPE html>
+			<html lang="en">
+				<head>
+					<meta charset="UTF-8">
+					<meta http-equiv="X-UA-Compatible" content="IE=edge">
+					<meta name="viewport" content="width=device-width, initial-scale=1.0">
+					<title>Document</title>
+				</head>
+				<body>
+					<div>
+						{{data.title}}
+						<p>Juibo ?{{data.juibo}}</p>
+					</div>
+				</body>
+			</html> #}

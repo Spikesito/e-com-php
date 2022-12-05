@@ -3,28 +3,32 @@
 // namespace App\Controller;
 
 
-require 'App/Model/Catalog.php';
+require 'App/Model/User.php';
 
-use App\Model\Catalog;
+use App\Model\User;
 
-class Cat extends Catalog
+class Registration extends User
 {
 
-    public function productAction()
+    public function displayLogin()
     {
-
         $loader = new \Twig\Loader\FilesystemLoader('App/View/templates');
         $twig = new \Twig\Environment($loader, [
             'cache' => false // __DIR__ . '/tmp'
         ]);
-        $template = $twig->load("catalog.twig");
+
+        $template = $twig->load("register.twig");
         // echo 1;
         echo $twig->render($template, [
-            'products' => $this::getAll(),
+            // 'products' => $this::getAll(),
             'test' => "bite"
         ]);
     }
-}
 
-$a = new Cat();
-$a->productAction();
+    public function checkLogin()
+    {
+
+
+        return "ok";
+    }
+}
