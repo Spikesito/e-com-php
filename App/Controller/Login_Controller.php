@@ -7,7 +7,7 @@ require 'App/Model/User.php';
 
 use App\Model\User;
 
-class Registration extends User
+class Login extends User
 {
 
     public function displayLogin()
@@ -25,10 +25,11 @@ class Registration extends User
         ]);
     }
 
-    public function checkLogin()
+    public function checkLogin($email, $pw)
     {
-
-
-        return "ok";
+        return $this->loginMatch($email, $pw);
     }
 }
+
+$obj = new Login();
+echo $obj->checkLogin("cframi@hotmaikl.com", "580e37a14e937589db3223dc34042093");
