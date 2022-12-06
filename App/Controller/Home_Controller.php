@@ -1,24 +1,27 @@
 <?php
 
-namespace App\Controllers;
+require 'App/Model/Catalog.php';
 
-use App\Model\Product\Product;
+use App\Model\Catalog;
 
-class Home 
+class Home extends Catalog
 {
-    public function homeAction()
+    public function displayHome()
     {
-        $loader = new \Twig\Loader\FilesystemLoader('./App/Views');
+        $loader = new \Twig\Loader\FilesystemLoader('App/View/templates');
         $twig = new \Twig\Environment($loader, [
             'cache' => false // __DIR__ . '/tmp'
         ]);
-        $template = $twig->load("home.twig");
 
-        echo $twig->render('catalog.twig', [
-            'products' => Product::getAll(),
+        $template = $twig->load("home.twig");
+        // echo 1;
+        echo $twig->render($template, [
+            'connected' => $_SESSION['connected'],
+            // 'products' => $this::getAll(),
+            // 'test' => "bite"
         ]);
     }
 }
 
-?>
-<!-- extends Core\Core\Controller -->
+$obj = new Home();
+$obj->displayHome();

@@ -18,8 +18,8 @@ class Detail extends Catalog
         // echo 1;
         // echo var_dump($this::getDetailById($id));
         echo $twig->render($template, [
-            'p' => $this::getDetailById($id),
-            'test' => "bite"
+            'connected' => $_SESSION['connected'],
+            'p' => $this::getDetailById($id)
         ]);
     }
 }

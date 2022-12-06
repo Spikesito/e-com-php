@@ -20,8 +20,8 @@ class Login extends User
         $template = $twig->load("login.twig");
         // echo 1;
         echo $twig->render($template, [
+            'connected' => $_SESSION['connected'],
             // 'products' => $this::getAll(),
-            'test' => "bite"
         ]);
     }
 
