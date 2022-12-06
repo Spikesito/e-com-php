@@ -26,3 +26,6 @@ class Detail extends Catalog
 
 $obj = new Detail();
 $obj->detailAction($productId);
+
+echo $_SESSION['connected'];
+echo var_dump($_SESSION['data']);

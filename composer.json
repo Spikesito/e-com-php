@@ -6,7 +6,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Ye\\EComPhp\\": "Controller/",
+            "Core\\": "Core/",
             "App\\": "App/"
         }
     },
