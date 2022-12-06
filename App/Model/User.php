@@ -43,6 +43,14 @@ class User extends \App\Model\Core\Core
 
     public static function createUser($data)
     {
+        $FirstName = $data['FirstName'];
+        $LastName = $data['LastName'];
+        $Email = $data['Email'];
+        $Password = $data['Password'];
+        $BirthDate = $data['BirthDate'];
+        $db = static::getDB();
+        $stmt = $db->query("INSERT INTO users (FirstName, LastName, Email, Password, Phone, Birthdate, PhotoId)  VALUES ('$FirstName', '$LastName' , '$Email', '$Password',1-904-362-3285,'$BirthDate', 169794 )");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     // public static function getId()

@@ -18,14 +18,24 @@
 					</div>
 
 				</div>
+
 				<div class="right-nav">
-					<a class="btn-nav" href="/login">Login</a>
-					<a class="btn-nav" href="/register">Register</a>
-					{% block header %}{% endblock %}
+					{% if connected != 1 %}
+						<a class="btn-nav" href="/login">Login</a>
+						<a class="btn-nav" href="/register">Register</a>
+					{% else %}
+						<a class="btn-nav" href="/logout">Logout</a>
+						<a class="btn-nav" href="/account	">My account</a>
+					{% endif %}
 				</div>
-
 			</header>
-
+			{% if status != '' %}
+				<div id="status">
+					<p>
+						{% block status %}{% endblock %}
+					</p>
+				</div>
+			{% endif %}
 			{% block content %}{% endblock %}
 
 		</body>
@@ -95,8 +105,15 @@
 				width: 80%;
 				height: 2.2vh;
 				border: 2px solid grey;
-				border-radius:5px;
+				border-radius: 5px;
 			}
-
+			#status {
+				width: 100%;
+				background-color: #62d14b;
+				height: 1.1em;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
 		</style>
 	</html>

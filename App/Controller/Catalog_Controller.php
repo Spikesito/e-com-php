@@ -7,8 +7,8 @@ require 'App/Model/Catalog.php';
 
 use App\Model\Catalog;
 
-echo $_SESSION['connected'];
-echo var_dump($_SESSION['data']);
+// echo $_SESSION['connected'];
+// echo var_dump($_SESSION['data']);
 
 class Cat extends Catalog
 {
@@ -23,13 +23,13 @@ class Cat extends Catalog
         $template = $twig->load("catalog.twig");
         // echo 1;
         echo $twig->render($template, [
+            'connected' => $_SESSION['connected'],
             'products' => $this::getAll()
         ]);
     }
 }
 
 $a = new Cat();
-if (ISSET($_SESSION['Name'])){
-
+if (isset($_SESSION['Name'])) {
 }
 $a->productAction();
