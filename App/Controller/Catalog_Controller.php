@@ -7,6 +7,9 @@ require 'App/Model/Catalog.php';
 
 use App\Model\Catalog;
 
+echo $_SESSION['connected'];
+echo var_dump($_SESSION['data']);
+
 class Cat extends Catalog
 {
 

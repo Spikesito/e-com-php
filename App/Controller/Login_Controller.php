@@ -17,7 +17,7 @@ class Login extends User
             'cache' => false // __DIR__ . '/tmp'
         ]);
 
-        $template = $twig->load("register.twig");
+        $template = $twig->load("login.twig");
         // echo 1;
         echo $twig->render($template, [
             // 'products' => $this::getAll(),
@@ -32,4 +32,15 @@ class Login extends User
 }
 
 $obj = new Login();
-echo $obj->checkLogin("cframi@hotmaikl.com", "580e37a14e937589db3223dc34042093");
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    $obj->displayLogin();
+} else {
+    $loginResponse = $obj->checkLogin($_POST['Email'], $_POST['Password']);
+    if (is_array($loginResponse)) {
+        $_SESSION['connected'] = true;
+        $_SESSION['data'] = $loginResponse;
+        header("Location: /catalog", true, 301);
+        exit();
+    }
+    $obj->displayLogin();
+}
