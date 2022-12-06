@@ -4,11 +4,11 @@ namespace App\Model;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-require 'App/Model/Core.php';
+require 'App/Model/CRUD.php';
 
 use PDO;
 
-class Catalog extends \App\Model\Core\Core
+class Catalog extends \App\Model\Crud
 // class Catalog
 
 {
@@ -31,10 +31,5 @@ class Catalog extends \App\Model\Core\Core
         return $final;
     }
 
-    // public static function getId()
-    // {
-    //     $db = static::getDB();
-    //     $stmt = $db->query("SELECT * FROM products; WHERE ProductId =");
-    //     return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    // }
 }
+

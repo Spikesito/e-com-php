@@ -11,7 +11,7 @@
 
 			<header>
 				<div class="left-nav">
-					<div class="logo"></div>
+					<div class="logo">Snokers</div>
 					<div class="btns-left">
 						<a class="btn-nav" href="/">Home</a>
 						<a class="btn-nav" href="/catalog">Catalog</a>
@@ -54,9 +54,18 @@
 			}
 
 			.logo {
+				display: flex;
+				align-items: flex-end;
 				height: 60%;
 				aspect-ratio: 1 / 1;
 				background-color: orange;
+			}
+
+			.btns-left {
+				display: flex;
+				justify-content:center;
+				flex-direction: column;
+				height: 10vh;
 			}
 
 			.btn-nav {
@@ -64,14 +73,16 @@
 				text-decoration: none;
 				font-weight: bold;
 				font-size: 16px;
-				margin: 10%;
+				padding-inline: 10%;
+				padding-block: 2px;
+				width: 8vh;
 			}
 
 			.right-nav {
 				display: flex;
 				flex-direction: row;
 				justify-content: space-between;
-				width: 12vh;
+				width: fit-content;
 			}
 
 			.names-input {

@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     // echo var_dump($regStatus);
     if ($regStatus === "ok") {
         $_POST['Password'] = md5($_POST['Password']);
-        $obj->createUser($_POST);
+        // $obj->createUser($_POST);
     } else {
         // afficher barre rouge avec valeur de $regStatus
         // echo $regStatus;

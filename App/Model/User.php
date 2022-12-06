@@ -41,14 +41,8 @@ class User extends \App\Model\Core\Core
         }
     }
 
-    public static function createUser($data)
+    public static function createUser($data, $strFields)
     {
+        $data = array_values($data);
     }
-
-    // public static function getId()
-    // {
-    //     $db = static::getDB();
-    //     $stmt = $db->query("SELECT * FROM products; WHERE ProductId =");
-    //     return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    // }
 }

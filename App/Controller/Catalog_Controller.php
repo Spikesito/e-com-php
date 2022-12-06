@@ -6,6 +6,7 @@
 require 'App/Model/Catalog.php';
 
 use App\Model\Catalog;
+use App\Model\Product;
 
 echo $_SESSION['connected'];
 echo var_dump($_SESSION['data']);
@@ -15,7 +16,6 @@ class Cat extends Catalog
 
     public function productAction()
     {
-
         $loader = new \Twig\Loader\FilesystemLoader('App/View/templates');
         $twig = new \Twig\Environment($loader, [
             'cache' => false // __DIR__ . '/tmp'
@@ -29,7 +29,6 @@ class Cat extends Catalog
 }
 
 $a = new Cat();
-if (ISSET($_SESSION['Name'])){
-
-}
+echo $a->getFields('users');
 $a->productAction();
+// $a->CrudData('C', "users", "'Emile', 'SEGURET', 'emileseguret@yahoo.fr', 'Bite', '0612', '26-07-1977', '170794'");
