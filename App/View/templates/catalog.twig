@@ -1,14 +1,16 @@
 {% extends "layout.twig" %}
 {% block head %}
 	<title>
-		Catalog
+		Catalog Snokers
 	</title>
+	{# <link href="{{asset('../static/catalog.css') }}" rel="stylesheet"> #}
 {% endblock %}
 
 
-{# {% block connected %}
-<p>Ici ya du contenu qui peut bouger</p>
-{% endblock %} #}
+{% block header %}
+	<div class="login"><
+{% endblock %}
+
 {% block content %}
 	<h1>
 		Catalog section !
@@ -23,23 +25,4 @@
 		</div>
 	{% endfor %}
 </div>
-<style>
-	#product-container {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		column-gap: 50px;
-		row-gap: 20px;
-		grid-auto-rows: minmax(100px, auto);
-		margin: 50px
-	}
-	.product-card {
-		background-color: white;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-	.product-card:hover {
-		background-color: #e3e3e3
-	}
-</style>{% endblock %}
+{% endblock %}

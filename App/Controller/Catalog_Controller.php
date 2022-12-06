@@ -29,4 +29,7 @@ class Cat extends Catalog
 }
 
 $a = new Cat();
+if (ISSET($_SESSION['Name'])){
+
+}
 $a->productAction();
