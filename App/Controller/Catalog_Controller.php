@@ -14,7 +14,7 @@ use App\Model\Product;
 class Cat extends Catalog
 {
 
-    public function productAction()
+    public function displayCatalog()
     {
         $loader = new \Twig\Loader\FilesystemLoader('App/View/templates');
         $twig = new \Twig\Environment($loader, [
@@ -30,6 +30,4 @@ class Cat extends Catalog
 }
 
 $a = new Cat();
-echo $a->getFields('users');
-$a->productAction();
-// $a->CrudData('C', "users", "'Emile', 'SEGURET', 'emileseguret@yahoo.fr', 'Bite', '0612', '26-07-1977', '170794'");
+$a->displayCatalog();

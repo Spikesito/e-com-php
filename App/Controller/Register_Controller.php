@@ -75,6 +75,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if ($regStatus === "ok") {
         $_POST['Password'] = md5($_POST['Password']);
         // $obj->createUser($_POST);
+        unset($_POST['Password2']);
+        echo "'" . implode("', '", array_values($_POST)) . "', '170794'";
+        $obj->CrudData('C', "users", "'" . implode("', '", array_values($_POST)) . "', '170794'");
     } else {
         // afficher barre rouge avec valeur de $regStatus
         // echo $regStatus;

@@ -32,6 +32,7 @@ class Crud extends \App\Model\Core\Core
         switch($method){
             case 'C':
                 echo "user ajouté" . $strValues;
+                echo '\n'.$strFields;
                 $stmt = $db->query("INSERT INTO $tableName ($strFields) VALUES ($strValues)");
                 return $stmt->fetchAll(PDO::FETCH_ASSOC);
                 break;

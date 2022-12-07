@@ -4,11 +4,11 @@ namespace App\Model;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-require 'App/Model/Core.php';
+require 'App/Model/CRUD.php';
 
 use PDO;
 
-class User extends \App\Model\Core\Core
+class User extends \App\Model\CRUD
 // class Catalog
 
 {
