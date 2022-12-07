@@ -2,13 +2,13 @@
 
 namespace App\Model;
 
-require_once __DIR__ . '/../../vendor/autoload.php';
+// require_once __DIR__ . '/../../vendor/autoload.php';
 
-require 'App/Model/CRUD.php';
+// require 'App/Model/CRUD.php';
 
 use PDO;
 
-class Catalog extends \App\Model\Crud
+class Catalog extends Crud
 // class Catalog
 
 {

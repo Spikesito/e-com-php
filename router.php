@@ -1,39 +1,47 @@
 <?php
-require 'vendor/autoload.php';
+// require 'vendor/autoload.php';
+require_once __DIR__ . './vendor/autoload.php';
 session_start();
 
+
 // var_dump($_SERVER) permets de print le contenu de toute la variable _SERVER / jouer avec le script_filename ds server pour créer des routes/ 
-function get($route, $path_to_include) {
+function get($route, $path_to_include)
+{
   if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     route($route, $path_to_include);
   }
 }
 
-function post($route, $path_to_include) {
+function post($route, $path_to_include)
+{
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     route($route, $path_to_include);
   }
 }
 
-function put($route, $path_to_include) {
+function put($route, $path_to_include)
+{
   if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
     route($route, $path_to_include);
   }
 }
 
-function patch($route, $path_to_include) {
+function patch($route, $path_to_include)
+{
   if ($_SERVER['REQUEST_METHOD'] == 'PATCH') {
     route($route, $path_to_include);
   }
 }
 
-function delete($route, $path_to_include) {
+function delete($route, $path_to_include)
+{
   if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
     route($route, $path_to_include);
   }
 }
 
-function any($route, $path_to_include) {
+function any($route, $path_to_include)
+{
   route($route, $path_to_include);
 }
 function route($route, $path_to_include)

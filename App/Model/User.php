@@ -2,21 +2,21 @@
 
 namespace App\Model;
 
-require_once __DIR__ . '/../../vendor/autoload.php';
+// require_once __DIR__ . '/../../vendor/autoload.php';
 
-require 'App/Model/CRUD.php';
+// require 'App/Model/CRUD.php';
 
 use PDO;
 
-class User extends \App\Model\CRUD
+class User extends CRUD
 // class Catalog
 
 {
 
-    public static function getUserByEmail($email)
+    public static function getUserById($id)
     {
         $db = static::getDB();
-        $stmt = $db->query("SELECT * FROM users WHERE Email = $email");
+        $stmt = $db->query("SELECT * FROM users WHERE UserId = $id");
         return $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
     }
 

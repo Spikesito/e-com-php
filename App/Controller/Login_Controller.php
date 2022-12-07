@@ -3,14 +3,14 @@
 // namespace App\Controller;
 
 
-require 'App/Model/User.php';
+// require 'App/Model/User.php';
 
 use App\Model\User;
 
 class Login extends User
 {
 
-    public function displayLogin()
+    public function displayLogin($status=null)
     {
         $loader = new \Twig\Loader\FilesystemLoader('App/View/templates');
         $twig = new \Twig\Environment($loader, [
@@ -21,6 +21,7 @@ class Login extends User
 
         echo $twig->render($template, [
             'connected' => $_SESSION['connected'],
+            'status' => $status
             // 'products' => $this::getAll(),
         ]);
     }
@@ -41,8 +42,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $_SESSION['data'] = $loginResponse;
         header("Location: /catalog", true, 301);
         exit();
+    } else {
+        $obj->displayLogin('Login or password incorrect');
     }
-    $obj->displayLogin();
 }
 
 echo $_SESSION['connected'];

@@ -1,6 +1,6 @@
 <?php
 
-require 'App/Model/Catalog.php';
+// require 'App/Model/Catalog.php';
 
 use App\Model\Catalog;
 

@@ -3,7 +3,7 @@
 // namespace App\Controller;
 
 
-require 'App/Model/Catalog.php';
+// require 'App/Model/Catalog.php';
 
 use App\Model\Catalog;
 use App\Model\Product;

@@ -3,7 +3,8 @@
 // namespace App\Controller;
 
 
-require 'App/Model/User.php';
+// require 'App/Model/User.php';
+
 
 use App\Model\User;
 
@@ -86,7 +87,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         echo $twig->render($template, [
             'connected' => $_SESSION['connected'],
             // 'products' => $this::getAll(),
-            'status' => $regStatus
+            'status' => $regStatus,
+            'statusColor' => 'red'
         ]);
     }
 }
