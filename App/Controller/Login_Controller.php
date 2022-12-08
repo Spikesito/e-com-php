@@ -36,7 +36,7 @@ $obj = new Login();
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $obj->displayLogin();
 } else {
-    $loginResponse = $obj->checkLogin($_POST['Email'], $_POST['Password']);
+    $loginResponse = $obj->checkLogin($_POST['Email'], md5($_POST['Password']));
     if (is_array($loginResponse)) {
         $_SESSION['connected'] = true;
         $_SESSION['data'] = $loginResponse;
@@ -48,5 +48,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
 }
 
-echo $_SESSION['connected'];
+// echo $_SESSION['connected'];
 // echo var_dump($_SESSION['data']);

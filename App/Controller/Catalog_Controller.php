@@ -30,10 +30,5 @@ class Cat extends Catalog
 }
 
 $a = new Cat();
-<<<<<<< HEAD
-echo $a->getFields('users');
-$a->productAction();
-// $a->CrudData('C', "users", "'Emile', 'SEGURET', 'emileseguret@yahoo.fr', 'Bite', '0612', '26-07-1977', '170794'");
-=======
 $a->displayCatalog();
->>>>>>> wass
+// echo var_dump($_SESSION);

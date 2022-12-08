@@ -2,6 +2,7 @@
 // require 'vendor/autoload.php';
 require_once __DIR__ . './vendor/autoload.php';
 session_start();
+// $_SESSION['connected'] = false;
 
 
 // var_dump($_SERVER) permets de print le contenu de toute la variable _SERVER / jouer avec le script_filename ds server pour créer des routes/ 
