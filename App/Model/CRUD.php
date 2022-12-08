@@ -26,13 +26,14 @@ class Crud extends Core
 
     // function getValuesBy
 
-    function CrudData($method, $tableName, $strValues){
+    function CrudData($method, $tableName, $strValues)
+    {
         $db = static::getDB();
         $strFields = $this->getFields($tableName);
-        switch($method){
+        switch ($method) {
             case 'C':
                 echo "user ajouté" . $strValues;
-                echo '\n'.$strFields;
+                echo '\n' . $strFields;
                 $stmt = $db->query("INSERT INTO $tableName ($strFields) VALUES ($strValues)");
                 return $stmt->fetchAll(PDO::FETCH_ASSOC);
                 break;
@@ -43,4 +44,3 @@ class Crud extends Core
         }
     }
 }
-
