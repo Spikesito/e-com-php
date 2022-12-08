@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (is_array($loginResponse)) {
         $_SESSION['connected'] = true;
         $_SESSION['data'] = $loginResponse;
+        // $_SESSION['grade'] = $loginResponse['Role'];
         header("Location: /catalog", true, 301);
         exit();
     } else {
@@ -48,4 +49,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 }
 
 echo $_SESSION['connected'];
-echo var_dump($_SESSION['data']);
+// echo var_dump($_SESSION['data']);

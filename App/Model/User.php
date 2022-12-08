@@ -37,7 +37,7 @@ class User extends CRUD
         }
         $user = $result[0];
         if ($email == $user['Email'] && $pw == $user['Password']) {
-            return array('Id' => $user['UserId'], 'Name' => $user['FirstName'], 'Photo' => $user['PhotoId']);
+            return array('Id' => $user['UserId'], 'Name' => $user['FirstName'], 'Photo' => $user['PhotoId'], 'Role' => $user['Role']);
         }
     }
 
