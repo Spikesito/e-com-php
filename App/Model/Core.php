@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Model\Core;
+namespace App\Model;
 
 use PDO;
 
-require 'App/Model/Config.php';
-use App\Model\Config\Config;
+// require 'App/Model/Config.php';
+// use App\Model\Config\Config;
 
 
 class Core

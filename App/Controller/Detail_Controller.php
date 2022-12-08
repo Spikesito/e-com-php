@@ -2,7 +2,7 @@
 // echo "jvois pas ";
 // echo $productId;
 
-require 'App/Model/Catalog.php';
+// require 'App/Model/Catalog.php';
 
 use App\Model\Catalog;
 
@@ -26,9 +26,3 @@ class Detail extends Catalog
 
 $obj = new Detail();
 $obj->detailAction($productId);
-<<<<<<< HEAD
-
-echo $_SESSION['connected'];
-echo var_dump($_SESSION['data']);
-=======
->>>>>>> 4932c94e6dda8503e71acfe56e60bd704b8c47e4
