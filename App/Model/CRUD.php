@@ -26,7 +26,7 @@ class Crud extends Core
 
     // function getValuesBy
 
-    function CrudData($method, $tableName, $strValues)
+    public function CrudData($method, $tableName, $strValues)
     {
         $db = static::getDB();
         $strFields = $this->getFields($tableName);
@@ -41,6 +41,11 @@ class Crud extends Core
 
             case 'U':
             case 'D':
+                $strValues = explode(',',$strValues);
+                echo "DELETE FROM $tableName WHERE $strValues[0] = $strValues[1] AND $strValues[2] = $strValues[3]";
+                $stmt = $db->query("DELETE FROM $tableName WHERE $strValues[0] = $strValues[1]");
+                return $stmt->fetchAll(PDO::FETCH_ASSOC);
+                break;
         }
     }
 }

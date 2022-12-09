@@ -25,14 +25,15 @@
 						<a class="btn-nav" href="/register">Register</a>
 					{% else %}
 						<a class="btn-nav" href="/logout">Logout</a>
-						<a class="btn-nav" href="/account	">My account</a>
+						<a class="btn-nav" href="/account">My account</a>
+						<a class="btn-nav" href="/cart">Cart</a>
 					{% endif %}
 				</div>
 			</header>
 			{% if status != '' %}
 				<div id="status">
 					<p>
-						{% block status %}{% endblock %}
+						{{status}}
 					</p>
 				</div>
 			{% endif %}
@@ -73,7 +74,7 @@
 
 			.btns-left {
 				display: flex;
-				justify-content:center;
+				justify-content: center;
 				flex-direction: column;
 				height: 10vh;
 			}
@@ -120,7 +121,8 @@
 			}
 			#status {
 				width: 100%;
-				background-color: {{statusColor}};
+				background-color: {{statusColor}}
+				;
 				height: 1.1em;
 				display: flex;
 				justify-content: center;

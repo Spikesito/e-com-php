@@ -29,6 +29,8 @@ post('/account', 'Account_Controller.php');
 get('/admin', 'Admin_Controller.php');
 post('/admin', 'Admin_Controller.php');
 get('/cart', 'Cart_Controller.php');
+post('/cart', 'Cart_Controller.php');
+get('/payment', 'Payment_Controller.php');
 // Dynamic GET. Example with 1 variable
 // The $id will be available in user.php
 // get('/user/$id', 'View/user');

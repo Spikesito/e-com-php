@@ -24,7 +24,7 @@ class Account extends User
     }
 }
 
-echo var_dump($_SESSION);
+// echo var_dump($_SESSION);
 if (isset($_SESSION['connected']) && $_SESSION['connected'] == true) {
     $obj = new Account();
     $obj->displayAccount();

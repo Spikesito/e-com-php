@@ -94,5 +94,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 }
 // echo $_POST['Name'];
 
-echo $_SESSION['connected'];
-echo var_dump($_SESSION['data']);
+// echo $_SESSION['connected'];
+// echo var_dump($_SESSION['data']);
