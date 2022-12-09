@@ -30,14 +30,18 @@ class User extends CRUD
     public static function loginMatch($email, $pw)
     {
         $db = static::getDB();
-        $stmt = $db->query("SELECT * FROM users WHERE Email = '$email'");
+        $stmt = $db->query("SELECT * FROM users INNER JOIN carts WHERE Email = '$email' ");
+
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // echo var_dump($result);
         if (sizeof($result) == 0) {
             return "wrong login";
         }
         $user = $result[0];
+        $userId = $user['UserId'];
+        $cartId = $db->query("SELECT * FROM carts WHERE UserId = $userId")->fetchAll(PDO::FETCH_ASSOC)[0]['CartId'];
         if ($email == $user['Email'] && $pw == $user['Password']) {
-            return array('Id' => $user['UserId'], 'Name' => $user['FirstName'], 'Photo' => $user['PhotoId'], 'Role' => $user['Role']);
+            return array('Id' => $user['UserId'], 'Name' => $user['FirstName'], 'Role' => $user['Role'], 'CartId' => $cartId);
         }
     }
 

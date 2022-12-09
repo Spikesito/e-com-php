@@ -18,13 +18,25 @@ class Cart extends Catalog
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function addToCart($cId,$pId, $quant)
+    public function addToCart($pId, $quant)
     {
         $pd = $this::getDetailById($pId);
         if ($pd['Quantity'] < $quant) {
             return "insufficient supply";
         }
-        
-        $this::CrudData("C","commandline","'$',''");
+        $cartId = $_SESSION['data']['CartId'];
+        $totalPrice = $pd['Price'] * $quant;
+        $this->CrudData("C", "commandline", "'$cartId','$pId','$quant','$totalPrice'");
+        return 'ok';
     }
+
+    public function deleteFromCart($pId)
+    {
+        // $pd = $this::getDetailById($pId);
+        $cartId = $_SESSION['data']['CartId'];
+        // $totalPrice = $pd['Price'] * $quant;
+        $this->CrudData("D", "commandline", "ProductId,$pId,CartId,$cartId");
+        return 'ok';
+    }
+    // public static function  
 }
