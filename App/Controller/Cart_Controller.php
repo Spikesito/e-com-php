@@ -34,7 +34,6 @@ class UserCart extends Cart
             'content' => $final,
             'total' => $total,
             'connected' => $_SESSION['connected']
-            // 'test' => "bite"
         ]);
     }
 }

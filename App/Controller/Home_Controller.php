@@ -18,7 +18,6 @@ class Home extends Catalog
         echo $twig->render($template, [
             'connected' => $_SESSION['connected'],
             // 'products' => $this::getAll(),
-            // 'test' => "bite"
         ]);
     }
 }

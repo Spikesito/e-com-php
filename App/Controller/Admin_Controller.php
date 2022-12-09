@@ -19,7 +19,6 @@ class Account extends User
             'connected' => $_SESSION['connected'],
             'data' => $this::getUserById($_SESSION['data']['Id'])
             // 'products' => $this::getAll(),
-            // 'test' => "bite"
         ]);
     }
 }

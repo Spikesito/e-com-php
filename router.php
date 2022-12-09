@@ -99,11 +99,9 @@ function route($route, $path_to_include)
     call_user_func_array($callback, $parameters);
     exit();
   }
-  // $mabite = array("a" => $parameters[0]);
   // $template = $twig->load("/$path_to_include");
   // $ffile = fopen("testfile.txt", "w");
   // fwrite($ffile, $parameters[0]);
-  // echo $template->render($mabite);
   include_once 'App/Controller/' . $path_to_include;
   exit();
 }

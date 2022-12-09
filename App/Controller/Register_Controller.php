@@ -23,7 +23,6 @@ class Registration extends User
         echo $twig->render($template, [
             'connected' => $_SESSION['connected'],
             // 'products' => $this::getAll(),
-            'test' => "bite"
         ]);
     }
 

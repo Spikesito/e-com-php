@@ -21,7 +21,6 @@ class Crud extends Core
         array_shift($result);
         // echo array_shift($result);
         return implode(', ', $result);
-        // return "bite";
     }
 
     // function getValuesBy
