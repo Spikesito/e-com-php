@@ -1,11 +1,5 @@
 <?php
 
-// namespace App\Controller;
-
-
-// require 'App/Model/User.php';
-
-
 use App\Model\User;
 
 class Registration extends User
@@ -15,15 +9,12 @@ class Registration extends User
     {
         $loader = new \Twig\Loader\FilesystemLoader('App/View/templates');
         $twig = new \Twig\Environment($loader, [
-            'cache' => false // __DIR__ . '/tmp'
+            'cache' => false
         ]);
 
         $template = $twig->load("register.twig");
-        // echo 1;
         echo $twig->render($template, [
             'connected' => $_SESSION['connected'],
-            // 'products' => $this::getAll(),
-            'test' => "bite"
         ]);
     }
 
@@ -61,24 +52,24 @@ class Registration extends User
 
 $loader = new \Twig\Loader\FilesystemLoader('App/View/templates');
 $twig = new \Twig\Environment($loader, [
-    'cache' => false // __DIR__ . '/tmp'
+    'cache' => false
 ]);
-// echo "vie";
-// echo $_SERVER['REQUEST_METHOD'];
+
+
 $obj = new Registration();
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $obj->displayRegister();
 } else {
     echo var_dump($_POST);
     $regStatus = $obj->checkRegistration($_POST);
-    echo "ui";
     // echo var_dump($regStatus);
     if ($regStatus === "ok") {
         $_POST['Password'] = md5($_POST['Password']);
-        // $obj->createUser($_POST);
         unset($_POST['Password2']);
         echo "'" . implode("', '", array_values($_POST)) . "', '170794'";
         $obj->CrudData('C', "users", "'" . implode("', '", array_values($_POST)) . "', '170794'");
+        header("Location: /login", true, 301);
+        exit();
     } else {
         // afficher barre rouge avec valeur de $regStatus
         // echo $regStatus;
@@ -86,13 +77,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         echo $twig->render($template, [
             'connected' => $_SESSION['connected'],
-            // 'products' => $this::getAll(),
             'status' => $regStatus,
             'statusColor' => 'red'
         ]);
     }
 }
-// echo $_POST['Name'];
 
-echo $_SESSION['connected'];
+// echo $_SESSION['connected'];
 // echo var_dump($_SESSION['data']);

@@ -22,7 +22,6 @@ class Login extends User
         echo $twig->render($template, [
             'connected' => $_SESSION['connected'],
             'status' => $status
-            // 'products' => $this::getAll(),
         ]);
     }
 
