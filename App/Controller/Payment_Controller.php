@@ -35,6 +35,6 @@ class Payment extends Cart
     }
 }
 
-$obj = new Home();
+$obj = new Payment();
 // call addToInvoices()
 $obj->displayHome();

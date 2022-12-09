@@ -15,10 +15,6 @@ class Account extends User
         echo $twig->render($template, [
             'connected' => $_SESSION['connected'],
             'data' => $this::getUserById($_SESSION['data']['Id'])
-<<<<<<< HEAD
-=======
-            // 'products' => $this::getAll(),
->>>>>>> wass
         ]);
     }
 
@@ -53,11 +49,7 @@ class Account extends User
     }
 }
 
-<<<<<<< HEAD
 $obj = new Account;
-=======
-// echo var_dump($_SESSION);
->>>>>>> wass
 if (isset($_SESSION['connected']) && $_SESSION['connected'] == true) {
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $obj->displayAccount();
