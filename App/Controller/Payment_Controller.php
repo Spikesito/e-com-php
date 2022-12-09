@@ -20,7 +20,6 @@ class Payment extends Cart
             'status' => "payment successful",
             'statusColor' => "green"
             // 'products' => $this::getAll(),
-            // 'test' => "bite"
         ]);
     }
     public function addToInvoices($pId, $quant)
